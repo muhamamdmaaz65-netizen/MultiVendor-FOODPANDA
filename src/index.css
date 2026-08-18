@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #ff5847;
+    --color-primary-dark: #e04335;
+    --color-primary-light: #ff7a6e;
+    --color-secondary: #1a1d29;
+    --color-accent: #fbbf24;
+    --color-success: #22c55e;
+    --color-warning: #f59e0b;
+    --color-error: #ef4444;
+    --color-surface: #ffffff;
+    --color-background: #f8f9fb;
+    --color-border: #e8eaed;
+    --color-text-primary: #1a1d29;
+    --color-text-secondary: #6b7280;
+    --color-text-muted: #9ca3af;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-[#ff5847] text-white hover:bg-[#e04335] active:scale-[0.98] shadow-sm shadow-[#ff5847]/20;
+  }
+  .btn-secondary {
+    @apply btn bg-gray-900 text-white hover:bg-gray-800 active:scale-[0.98];
+  }
+  .btn-outline {
+    @apply btn border border-gray-200 bg-white text-gray-900 hover:bg-gray-50 active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply btn text-gray-700 hover:bg-gray-100;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-sm;
+  }
+  .btn-md {
+    @apply px-4 py-2.5 text-sm;
+  }
+  .btn-lg {
+    @apply px-6 py-3 text-base;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-gray-200 bg-white px-4 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 focus:border-[#ff5847] focus:ring-2 focus:ring-[#ff5847]/10 focus:outline-none transition-all;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-gray-700 mb-1.5;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded-lg;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg;
+  }
+
+  .section-title {
+    @apply text-xl font-bold text-gray-900 sm:text-2xl;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: animate-in 0.3s ease-out;
+  }
+  .slide-in-from-right {
+    animation: slide-in-from-right 0.3s ease-out;
+  }
+  .fade-in {
+    animation: fade-in 0.2s ease-out;
+  }
+  .scale-in {
+    animation: scale-in 0.15s ease-out;
+  }
+
+  @keyframes animate-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slide-in-from-right {
+    from { opacity: 0; transform: translateX(100%); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
